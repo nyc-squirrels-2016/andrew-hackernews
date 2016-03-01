@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+<fieldset>
+  <legend>Post Details: </legend>
+<% [:title, :body].each do |field| %>
+<div>
+  <%= f.label field %>
+  <%= f.text_field field %>
+</div>
+<% end %>
+  <%= f.submit %>
+
+</fieldset>
+<% end %>

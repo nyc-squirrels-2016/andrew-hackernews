@@ -1,0 +1,12 @@
+<% if logged_in?  %>
+  <%= link_to "Create New Post", '/posts/new'%>
+<% end %>
+<hr>
+<% @posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %> posted by <%=post.user.username%> with <%= post.vote_count %> votes</li>
+  <% if logged_in?  %>
+    <%= link_to "Upvote", upvote_post_postvotes_path(post), method: :post %>
+    <%= link_to "Downvote", downvote_post_postvotes_path(post), method: :post%>
+  <% end %>
+  <br>
+<% end %>
